@@ -4,7 +4,7 @@ def safeInput():
     pinq = Tk()
     pinq.title('Enter pin')
     pinq.geometry('190x290')
-    pinq['bg'] = 'cyan'
+    pinq['bg'] = ''
     inputq = ''
 
     def qqww(): print(inputq)
@@ -63,7 +63,7 @@ def safeInput():
 def run(quest, typeOf='Any'):
     tkinp = Tk()
     tkinp.geometry('200x100')
-    tkinp['bg'] = 'cyan'
+    tkinp['bg'] = 'gray60'
     tkinp.resizable(0, 0)
     tkinp.title('Enter')
 
@@ -72,8 +72,8 @@ def run(quest, typeOf='Any'):
     entryIn.place(x=10, y=70, width=180)
     entryIn.focus()
 
-    Label(tkinp, text=f'{quest}:', bg='cyan').place(x=10, y=40)
-    Label(tkinp, text=f'Тип: {typeOf}', bg='cyan').place(x=10, y=20)
+    Label(tkinp, text=f'{quest}:', bg='gray60').place(x=10, y=40)
+    Label(tkinp, text=f'Тип: {typeOf}', bg='gray60').place(x=10, y=20)
 
     result = None
     def end(event):
@@ -85,5 +85,5 @@ def run(quest, typeOf='Any'):
     tkinp.wait_window()  # Ждем уничтожения окна
     return result  # Возвращаем результат
 
-# print(run('Вопрос'))
+print(run('Вопрос'))
 print(safeInput())
