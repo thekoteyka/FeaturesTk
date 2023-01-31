@@ -4,7 +4,7 @@ def safeInput():
     pinq = Tk()
     pinq.title('Enter pin')
     pinq.geometry('190x290')
-    pinq['bg'] = ''
+    pinq['bg'] = 'cyan'
     inputq = ''
 
     def qqww(): print(inputq)
