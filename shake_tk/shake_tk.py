@@ -2,23 +2,23 @@ from tkinter import *
 
 # Пример как сделать тряску окна Tkinter
 
-root = Tk()
+window = Tk()
 
 ROOT_SIZE_X = 300
 ROOT_SIZE_Y = 200
 
-root.geometry(f'{ROOT_SIZE_X}x{ROOT_SIZE_Y}')
-root['bg'] = 'gray60'
-root.title('Shake!')
-root.resizable(False, False)
+window.geometry(f'{ROOT_SIZE_X}x{ROOT_SIZE_Y}')
+window['bg'] = 'gray60'
+window.title('Shake!')
+window.resizable(False, False)
 
-def shake_now():
+def shake_now(window):
     '''
     Трясёт окно
     '''
     # Danger Zone, dont change anything in this area ===
     velocity = 0  # Ускорение для вектора движения окна, не менять значение для корректной работы
-    y = root.winfo_y()  # Получаем координаты окна относительно начала координат на мониторе (левый верхний край)
+    y = window.winfo_y()  # Получаем координаты окна относительно начала координат на мониторе (левый верхний край)
     # ==================================================
 
     # Settings ------------
@@ -33,11 +33,11 @@ def shake_now():
     #
 
     def go():  # Движение
-        x = root.winfo_x()  # Координаты окна
-        root.wm_geometry(f'{ROOT_SIZE_X}x{ROOT_SIZE_Y}+{velocity+x}+{y}')  # Изменяем местоположение окна, добавляя к позиции <x>
+        x = window.winfo_x()  # Координаты окна
+        window.wm_geometry(f'{ROOT_SIZE_X}x{ROOT_SIZE_Y}+{velocity+x}+{y}')  # Изменяем местоположение окна, добавляя к позиции <x>
                                                                             # текущее ускорение
-        root.after(1)  # Чуть чуть ждём для плавности
-        root.update()  # Обновляем позицию окна (Важно)
+        window.after(1)  # Чуть чуть ждём для плавности
+        window.update()  # Обновляем позицию окна (Важно)
 
     def go_right():  # Движение направо
         nonlocal velocity
@@ -67,6 +67,6 @@ def shake_now():
     go_left()  #  []     |          
     go_right() #         []
 
-Button(text='Shake!', command=shake_now).place(x=5, y=20)
+Button(text='Shake!', command=lambda: shake_now(window)).place(x=5, y=20)
 
-root.mainloop()
+window.mainloop()
