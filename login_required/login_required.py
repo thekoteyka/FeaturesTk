@@ -197,9 +197,12 @@ def _login(_access=None):
 def login_required(func):
 
     if loggined:
-        print(func())
+        func()
     else:
         _login()
+        if loggined:
+            func()
+            
 
 @login_required
 def add():
