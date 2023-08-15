@@ -120,7 +120,7 @@ def _login(_access=None):
             if name.replace(' ', '') == '':
                 shake_now(reg)
                 return
-            if 'w' in data:
+            if name in data:
                 shake_now(reg)
                 return
             if role == '':

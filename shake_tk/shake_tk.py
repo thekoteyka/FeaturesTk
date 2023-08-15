@@ -36,7 +36,7 @@ def shake_now(window):
         x = window.winfo_x()  # Координаты окна
         window.wm_geometry(f'{ROOT_SIZE_X}x{ROOT_SIZE_Y}+{velocity+x}+{y}')  # Изменяем местоположение окна, добавляя к позиции <x>
                                                                             # текущее ускорение
-        window.after(1)  # Чуть чуть ждём для плавности
+        window.after(7)  # Чуть чуть ждём для плавности
         window.update()  # Обновляем позицию окна (Важно)
 
     def go_right():  # Движение направо
